@@ -8,7 +8,7 @@
     {% for lost in all_lost %}
         <tr>
             <td>{{lost.date}}</td>
-            <td>{{lost.title}}</td>
+            <td><a href="{% url 'detail' lost.id %}" >{{ lost.title }}</a></td>
         </tr>
     {% endfor %}
 
@@ -23,7 +23,7 @@
     {% for lost in lost_phone %}
         <tr>
             <td>{{lost.date}}</td>
-            <td>{{lost.title}}</td>
+            <td><a href="{% url 'detail' lost.id %}" >{{ lost.title }}</a></td>
         </tr>
     {% endfor %}
 
@@ -37,7 +37,7 @@
     {% for lost in lost_today %}
         <tr>
             <td>{{lost.date}}</td>
-            <td>{{lost.title}}</td>
+            <td><a href="{% url 'detail' lost.id %}" >{{ lost.title }}</a></td>
         </tr>
     {% endfor %}
 
