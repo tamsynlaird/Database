@@ -1,0 +1,23 @@
+<h1>Search</h1>
+
+<form action="" method = "get">
+
+    <input type="text" name = "q">
+
+    <input type="submit" value = "Search">
+
+</form>
+
+<h2>Results</h2>
+<table>
+    <thead>
+      <th>Date</th>
+      <th>Title</th>
+    </thead>
+    {% for lost in relevant_lost %}
+        <tr>
+            <td>{{ lost.date }}</td>
+            <td><a href="{% url 'detail' lost.id %}" >{{ lost.title }}</a></td>
+        </tr>
+    {% endfor %}
+</table>

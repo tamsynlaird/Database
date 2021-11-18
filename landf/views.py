@@ -21,3 +21,16 @@ def detail(request, lost_id):
     context = {'lost': lost}
 
     return render(request, 'landf\detail.html', context)
+
+def search(request):
+
+    all_lost = Lost.objects.all().order_by('date')
+
+    if len(request.GET) == 0:
+        relevant_events = all_lost
+    else:
+        search_string = request.GET['q']
+        relevant_lost = all_lost.filter(title__contains = search_string)
+    context = {'relevant_lost': relevant_lost}
+
+    return render(request, 'landf/search.html', context)
